@@ -1,0 +1,80 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# History settings
+HISTFILE=~/.histfile
+HISTSIZE=10000
+SAVEHIST=10000
+
+# Zsh options
+setopt beep nomatch
+unsetopt autocd extendedglob notify
+bindkey -v
+export KEYTIMEOUT=1
+
+# Completion system
+fpath+=(/usr/share/zsh/plugins/zsh-completions/src)
+zstyle :compinstall filename '/home/mrjxtr/.zshrc'
+autoload -Uz compinit
+compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'm:{A-Z}={a-z}'
+
+
+# Config Aliases
+alias nv="nvim"
+alias cfgchad="cd ~/.config/nvim && nvim"
+alias cfgzsh="cd ~/.config/zshrc && nvim"
+alias cfghypr="cd ~/.config/hypr/conf && nvim"
+alias cfgwbar="cd ~/.config/waybar && nvim"
+alias cfgkitty="cd ~/.config/kitty && nvim"
+alias cfgvim="nv ~/.vimrc"
+alias cfgp10k="nv ~/.p10k.zsh"
+alias cfgtmux="nv ~/.tmux.conf"
+
+# Navigation Aliases
+alias c="clear"
+alias desk='cd ~/Desktop'
+alias proj='cd ~/Projects'
+alias src='cd ~/Projects/.scripts && nvim'
+alias work='cd ~/Projects/work'
+alias learn='cd ~/Projects/learn'
+alias build='cd ~/Projects/build'
+alias contrib='cd ~/Projects/contrib'
+
+# Utility Aliases
+alias camon='sudo modprobe uvcvideo' # turn camera on
+alias camoff='sudo modprobe -r uvcvideo' # turn camera off
+alias caout='pactl load-module module-combine-sink' # create a combined audio chanel
+alias unlckr='faillock --user $(whoami) --reset' # Unlock failed password attempts
+alias spdtest='speedtest-cli --secure --bytes' # Run an internet speed test
+alias spdtest_share='speedtest-cli --secure --bytes --share' # Run a shareable internet speed test
+
+alias tslist='sudo timeshift --list' # List all the backups
+alias tsbak='sudo timeshift --create --comments "Stable +-"' # Create a timeshift backup
+alias tsdel='sudo timeshift --delete --snapshot "$(sudo timeshift --list | grep -oP "(?<=\s)\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}" | head -n 1)"' # Delete the oldest backup
+
+alias repac='sudo reflector --verbose --latest 10 --protocol http --sort rate --save /etc/pacman.d/mirrorlist' # Regenerating Pacman server mirror list
+
+source <(fzf --zsh) # Set-up FZF key bindings (CTRL R for fuzzy history finder)
+alias fzf="fzf --padding 3% --border --reverse --preview 'cat {}'" # Custom fzf ui
+
+# Scripts Aliases
+alias checku='~/Projects/.scripts/cmd/checkupdates.sh'
+alias checkv='~/Projects/.scripts/cmd/checkversions.sh'
+alias codext='~/Projects/.scripts/cmd/vscustom.sh'
+alias ginit='~/Projects/.scripts/cmd/initrepo.sh'
+alias sys-maintain='sudo ~/Projects/.scripts/cmd/sysmaintain.sh'
+
+# Golang Path
+export PATH=$PATH:$HOME/go/bin
+
+# Fly.io CLI
+export FLYCTL_INSTALL="/home/mrjxtr/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
