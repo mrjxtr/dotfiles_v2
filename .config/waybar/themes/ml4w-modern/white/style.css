@@ -13,6 +13,7 @@
 /* @define-color textcolor3 #000000; */
 /* @define-color iconcolor #FFFFFF; */
 
+@define-color backgroundtt #000000;
 @define-color backgroundlight transparent;
 @define-color backgrounddark transparent;
 @define-color workspacesbackground1 transparent;
@@ -32,4 +33,3 @@
 #custom-chatgpt {
   background-image: url('../../assets/openai-white.svg');
 }
-
