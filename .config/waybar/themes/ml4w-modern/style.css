@@ -64,8 +64,8 @@ window#waybar {
 #workspaces button.active {
   color: @textcolor1;
   background: @workspacesbackground2;
-  border-radius: 3px 3px 3px 3px;
-  min-width: 30px;
+  /* border-radius: 3px 3px 3px 3px; */
+  /* min-width: 30px; */
   transition: all 0.1s linear;
   opacity: 1;
 }
@@ -293,7 +293,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-exit {
-  margin: 0px 15px 0px 0px;
+  margin: 0px 10px 0px 0px;
   padding: 0px;
   font-size: 20px;
   color: @iconcolor;
