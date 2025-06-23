@@ -41,17 +41,18 @@ window#waybar {
 
 #workspaces {
   background: @workspacesbackground1;
-  margin: 2px 18px 3px 1px;
+  margin: 2px 9px 3px 1px;
   padding: 0px 2px;
   border-radius: 5px 5px 5px 5px;
   font-weight: bold;
   font-style: normal;
+  font-size: 16px;
   opacity: 0.8;
   color: @textcolor1;
 }
 
 #workspaces button {
-  padding: 0px 6px;
+  padding: 0px 3px;
   margin: 3px 2px;
   border-radius: 3px 3px 3px 3px;
   color: @textcolor1;
@@ -280,7 +281,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-notification {
-  margin: 0px 13px 0px 0px;
+  margin: 0px 15px 0px 0px;
   padding: 0px;
   font-size: 20px;
   color: @iconcolor;
@@ -292,7 +293,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-exit {
-  margin: 0px 13px 0px 0px;
+  margin: 0px 15px 0px 0px;
   padding: 0px;
   font-size: 20px;
   color: @iconcolor;
@@ -308,8 +309,8 @@ window#waybar.empty #window {
   font-size: 16px;
   color: @textcolor2;
   border-radius: 5px 5px 5px 5px;
-  padding: 2px 10px 0px 10px;
-  margin: 3px 15px 3px 0px;
+  padding: 2px 2px 0px 10px;
+  margin: 3px 9px 3px 0px;
   opacity: 0.8;
 }
 
@@ -339,6 +340,7 @@ window#waybar.empty #window {
   padding: 0px;
   font-size: 16px;
   color: @iconcolor;
+  opacity: 0.8;
 }
 
 #memory {
@@ -358,6 +360,7 @@ window#waybar.empty #window {
   padding: 0px;
   font-size: 16px;
   color: @iconcolor;
+  opacity: 0.8;
 }
 
 /* -----------------------------------------------------
@@ -397,9 +400,9 @@ window#waybar.empty #window {
   background-color: @backgroundlight;
   font-size: 16px;
   color: @textcolor2;
-  border-radius: 5px 5px 5px 5px;
-  padding: 2px 10px 0px 10px;
-  margin: 3px 15px 3px 0px;
+  /* border-radius: 5px 5px 5px 5px; */
+  padding: 2px 2px 0px 10px;
+  margin: 3px 9px 3px 0px;
   opacity: 0.8;
 }
 
@@ -463,7 +466,7 @@ window#waybar.empty #window {
   font-size: 16px;
   color: @textcolor2;
   border-radius: 5px 5px 5px 5px;
-  padding: 2px 11px 0px 10px;
+  padding: 2px 2px 0px 10px;
   margin: 3px 15px 3px 0px;
   opacity: 0.8;
 }

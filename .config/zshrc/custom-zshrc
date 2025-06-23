@@ -69,6 +69,9 @@ alias codext='~/Projects/.scripts/cmd/vscustom.sh'
 alias ginit='~/Projects/.scripts/cmd/initrepo.sh'
 alias sys-maintain='sudo ~/Projects/.scripts/cmd/sysmaintain.sh'
 
+# Mr-Verse
+alias mrv='cd ~/Projects/build/mr-ministry/mr-verse/bin/linux && ./mr-verse-linux'
+
 # Golang Path
 export PATH=$PATH:$HOME/go/bin
 

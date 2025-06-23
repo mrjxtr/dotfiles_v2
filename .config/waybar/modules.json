@@ -175,17 +175,13 @@
     "tooltip-format": "Left: Notifications\nRight: Do not disturb",
     "format": "{icon}",
     "format-icons": {
-      "notification":
-        "<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
+      "notification": "<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
       "none": "",
-      "dnd-notification":
-        "<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
+      "dnd-notification": "<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
       "dnd-none": "",
-      "inhibited-notification":
-        "<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
+      "inhibited-notification": "<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
       "inhibited-none": "",
-      "dnd-inhibited-notification":
-        "<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
+      "dnd-inhibited-notification": "<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
       "dnd-inhibited-none": ""
     },
     "return-type": "json",
@@ -234,7 +230,7 @@
 
   // Clock
   "clock": {
-    "format": "{:%T | %Y.%Om.%Od %a}",
+    "format": "{:%T | %y.%Om.%Od %a}",
     "interval": 1,
     "on-click": "flatpak run com.ml4w.calendar",
     "timezone": "",
@@ -250,14 +246,14 @@
   // CPU
   "cpu": {
     "interval": 1,
-    "format": "/ C {usage}% ",
+    "format": "| C {usage}% ",
     "on-click": "~/.config/ml4w/settings/system-monitor.sh"
   },
 
   // Memory
   "memory": {
     "interval": 1,
-    "format": "/ M {}% ",
+    "format": "| M {}% ",
     "on-click": "~/.config/ml4w/settings/system-monitor.sh"
   },
 
