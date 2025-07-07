@@ -57,6 +57,9 @@ alias tslist='sudo timeshift --list' # List all the backups
 alias tsbak='sudo timeshift --create --comments "Stable +-"' # Create a timeshift backup
 alias tsdel='sudo timeshift --delete --snapshot "$(sudo timeshift --list | grep -oP "(?<=\s)\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}" | head -n 1)"' # Delete the oldest backup
 
+alias gits='git status'
+alias gitss='git status --short'
+
 alias repac='sudo reflector --verbose --latest 10 --protocol http --sort rate --save /etc/pacman.d/mirrorlist' # Regenerating Pacman server mirror list
 
 source <(fzf --zsh) # Set-up FZF key bindings (CTRL R for fuzzy history finder)
