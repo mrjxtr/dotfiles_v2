@@ -10,11 +10,11 @@
 //
 {
     // General Settings
-    "height": 10,
+    "height": 1,
     "layer": "top",
-    "margin-top": 1,
+    "margin-top": 0,
     "margin-bottom": 0,
-    "margin-left": 10,
+    "margin-left": 0,
     "margin-right": 0,    
     "spacing": -10,
 
@@ -55,7 +55,7 @@
         "group/hardware",
         "tray",
         "custom/notification",
-        "custom/exit",
-        "custom/ml4w-welcome"
+        "custom/exit"
+        //"custom/ml4w-welcome"
     ],
 }
