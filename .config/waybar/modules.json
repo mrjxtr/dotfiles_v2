@@ -175,7 +175,8 @@
     "tooltip-format": "Left: Notifications\nRight: Do not disturb",
     "format": "{icon}",
     "format-icons": {
-      "notification": "<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
+      // "notification": "<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
+      "notification": "<span rise='8pt' foreground='orange'></span>",
       "none": "",
       "dnd-notification": "<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
       "dnd-none": "",
