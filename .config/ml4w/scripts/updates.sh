@@ -51,7 +51,7 @@ case $install_platform in
 
         check_lock_files
 
-        updates=$(checkupdates-with-aur | wc -l)
+        updates=$($aur_helper -Qu | wc -l)
     ;;
     fedora)
         updates=$(dnf check-update -q | grep -c ^[a-z0-9])
