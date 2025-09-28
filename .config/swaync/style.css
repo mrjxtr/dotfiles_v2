@@ -46,3 +46,30 @@ button {
   color: #ffffff;
   background: transparent;
 }
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .close-button {
+  background: transparent;
+  border-radius: 20px;
+  color: @fontcolor;
+  background-color: alpha(#fff, 0.5);
+  margin: 4px;
+  padding: 4px;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .close-button:hover {
+  background-color: @primary;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .close-button:active {
+  background-color: @primary;
+  color: @fontcolor;
+}
