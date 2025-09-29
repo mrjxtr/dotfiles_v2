@@ -59,6 +59,8 @@ alias tsdel='sudo timeshift --delete --snapshot "$(sudo timeshift --list | grep 
 
 alias gits='git status'
 alias gitss='git status --short'
+alias main='git checkout main'
+alias dev='git checkout dev'
 
 alias repac='sudo reflector --verbose --latest 10 --protocol http --sort rate --save /etc/pacman.d/mirrorlist' # Regenerating Pacman server mirror list
 
