@@ -72,8 +72,10 @@ alias checku='~/Projects/.scripts/cmd/checkupdates.sh'
 alias checkv='~/Projects/.scripts/cmd/checkversions.sh'
 alias codext='~/Projects/.scripts/cmd/vscustom.sh'
 alias ginit='~/Projects/.scripts/cmd/initrepo.sh'
-alias tmux-dev='~/Projects/.scripts/cmd/tmux-dev.sh'
 alias sys-maintain='sudo ~/Projects/.scripts/cmd/sysmaintain.sh'
+
+alias tmuxd='~/Projects/.scripts/cmd/tmux-dev.sh'
+alias tmuxk='tmux kill-server'
 
 # Mr-Verse
 alias mrv='cd ~/Projects/build/mr-ministry/mr-verse/bin/linux && ./mr-verse-linux'
