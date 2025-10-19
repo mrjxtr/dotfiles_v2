@@ -77,8 +77,8 @@ alias sys-maintain='sudo ~/Projects/.scripts/cmd/sysmaintain.sh'
 alias tmuxd='~/Projects/.scripts/cmd/tmux-dev.sh'
 alias tmuxk='tmux kill-server'
 
-# Mr-Verse
-alias mrv='cd ~/Projects/build/mr-ministry/mr-verse/bin/linux && ./mr-verse-linux'
+# Shortcut to notes
+alias notes='cd ~/Documents/mr-vault/ && nvim new.md'
 
 # Golang Path
 export PATH=$PATH:$HOME/go/bin
