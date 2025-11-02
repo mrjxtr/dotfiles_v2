@@ -39,6 +39,7 @@ alias cfgtmux="nv ~/.tmux.conf"
 alias c="clear"
 alias desk='cd ~/Desktop'
 alias proj='cd ~/Projects'
+alias ups='cd ~/Projects/startups'
 alias src='cd ~/Projects/.scripts && nvim'
 alias work='cd ~/Projects/work'
 alias learn='cd ~/Projects/learn'
