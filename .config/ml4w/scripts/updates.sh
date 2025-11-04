@@ -51,10 +51,8 @@ case $install_platform in
 
         check_lock_files
 
-        $aur_helper -Sy --quiet
-
-        updates_pacman=$(checkupdates | wc -l)
         updates_aur=$($aur_helper -Qum | wc -l)
+        updates_pacman=$(checkupdates | wc -l)
         updates=$((updates_aur + updates_pacman))
 
     ;;
