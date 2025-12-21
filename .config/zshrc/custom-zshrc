@@ -47,12 +47,13 @@ alias build='cd ~/Projects/build'
 alias contrib='cd ~/Projects/contrib'
 
 # Utility Aliases
-alias camon='sudo modprobe uvcvideo' # turn camera on
-alias camoff='sudo modprobe -r uvcvideo' # turn camera off
-alias caout='pactl load-module module-combine-sink' # create a combined audio chanel
+alias camon='sudo modprobe uvcvideo' # Turn camera on
+alias camoff='sudo modprobe -r uvcvideo' # Turn camera off
+alias caout='pactl load-module module-combine-sink' # Create a combined audio chanel
 alias unlckr='faillock --user $(whoami) --reset' # Unlock failed password attempts
 alias spdtest='speedtest-cli --secure --bytes' # Run an internet speed test
 alias spdtest_share='speedtest-cli --secure --bytes --share' # Run a shareable internet speed test
+alias cnotif='swaync-client -C' # Clears all notifications
 
 alias tslist='sudo timeshift --list' # List all the backups
 alias tsbak='sudo timeshift --create --comments "Stable +-"' # Create a timeshift backup
