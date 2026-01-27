@@ -54,7 +54,7 @@ alias caout='pactl load-module module-combine-sink' # Create a combined audio ch
 alias unlckr='faillock --user $(whoami) --reset' # Unlock failed password attempts
 alias spdtest='speedtest-cli --secure --bytes' # Run an internet speed test
 alias spdtest_share='speedtest-cli --secure --bytes --share' # Run a shareable internet speed test
-alias cnotif='swaync-client -C' # Clears all notifications
+alias cnc='swaync-client -C' # Clears all notifications
 
 alias tslist='sudo timeshift --list' # List all the backups
 alias tsbak='sudo timeshift --create --comments "Stable +-"' # Create a timeshift backup
@@ -78,8 +78,8 @@ alias sys-maintain='sudo ~/Projects/.scripts/cmd/sysmaintain.sh'
 
 alias poke='cd ~/Projects/build/dev/go-pme/ && ./go-pme && cd ~/'
 
-alias tmuxd='~/Projects/.scripts/cmd/tmux-dev.sh'
-alias tmuxk='tmux kill-server'
+alias tmx='~/Projects/.scripts/cmd/tmux-dev.sh'
+alias tmxx='tmux kill-server'
 
 # Shortcut to notes
 alias notes='cd ~/Documents/mr-vault/ && nvim new.md'
