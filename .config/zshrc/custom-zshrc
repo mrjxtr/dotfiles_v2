@@ -76,7 +76,9 @@ alias checkv='~/Projects/.scripts/cmd/checkversions.sh'
 alias ginit='~/Projects/.scripts/cmd/initrepo.sh'
 alias sys-maintain='sudo ~/Projects/.scripts/cmd/sysmaintain.sh'
 
+# Custom Automations
 alias poke='cd ~/Projects/build/dev/go-pme/ && ./go-pme && cd ~/'
+alias agc='cd ~/Projects/build/dev/auto-git-commit/ && ./bin/agc && cd ~/'
 
 alias tmx='~/Projects/.scripts/cmd/tmux-dev.sh'
 alias tmxx='tmux kill-server'
