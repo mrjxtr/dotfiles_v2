@@ -68,6 +68,10 @@ alias staging='git checkout staging'
 
 alias repac='sudo reflector --verbose --latest 10 --protocol http --sort rate --save /etc/pacman.d/mirrorlist' # Regenerating Pacman server mirror list
 
+alias protonc='protonvpn -v connect'
+alias protond='protonvpn -v disconnect'
+alias protoni='protonvpn -v info'
+
 source <(fzf --zsh) # Set-up FZF key bindings (CTRL R for fuzzy history finder)
 alias fzf="fzf --padding 3% --border --reverse --preview 'cat {}'" # Custom fzf ui
 
