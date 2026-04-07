@@ -72,6 +72,10 @@ alias protonc='protonvpn -v connect'
 alias protond='protonvpn -v disconnect'
 alias protoni='protonvpn -v info'
 
+alias loc='tokei . --sort code && scc .'
+alias gloc='scc .'
+alias rloc='tokei . --sort code'
+
 source <(fzf --zsh) # Set-up FZF key bindings (CTRL R for fuzzy history finder)
 alias fzf="fzf --padding 3% --border --reverse --preview 'cat {}'" # Custom fzf ui
 
