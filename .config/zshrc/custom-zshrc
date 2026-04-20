@@ -61,6 +61,8 @@ alias tsbak='sudo timeshift --create --comments "Stable +-"' # Create a timeshif
 alias tsdel='sudo timeshift --delete --snapshot "$(sudo timeshift --list | grep -oP "(?<=\s)\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}" | head -n 1)"' # Delete the oldest backup
 
 alias cc='CLAUDE_CODE_NO_FLICKER=1 claude'
+alias ccc='CLAUDE_CODE_NO_FLICKER=1 claude -c'
+alias ccr='CLAUDE_CODE_NO_FLICKER=1 claude --resume'
 
 alias gits='git status'
 alias gitss='git status --short'
@@ -90,7 +92,8 @@ alias sys-maintain='sudo ~/Projects/.scripts/cmd/sysmaintain.sh'
 alias poke='cd ~/Projects/build/dev/go-pme/ && ./go-pme && cd ~/'
 alias agc='cd ~/Projects/build/dev/auto-git-commit/ && ./bin/agc && cd ~/'
 
-alias tmx='~/Projects/.scripts/cmd/tmux-dev.sh'
+alias tmxw='~/Projects/.scripts/cmd/tmux-dev.sh'
+alias tmxb='~/Projects/.scripts/cmd/tmux-build.sh'
 alias tmxx='tmux kill-server'
 
 # Shortcut to notes
