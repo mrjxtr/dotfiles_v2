@@ -60,9 +60,9 @@ alias tslist='sudo timeshift --list' # List all the backups
 alias tsbak='sudo timeshift --create --comments "Stable +-"' # Create a timeshift backup
 alias tsdel='sudo timeshift --delete --snapshot "$(sudo timeshift --list | grep -oP "(?<=\s)\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}" | head -n 1)"' # Delete the oldest backup
 
-alias cc='CLAUDE_CODE_NO_FLICKER=1 claude'
-alias ccc='CLAUDE_CODE_NO_FLICKER=1 claude -c'
-alias ccr='CLAUDE_CODE_NO_FLICKER=1 claude --resume'
+alias cc='claude'
+alias ccc='claude -c'
+alias ccr='claude --resume'
 
 alias gits='git status'
 alias gitss='git status --short'
