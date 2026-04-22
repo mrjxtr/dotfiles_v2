@@ -96,6 +96,9 @@ alias tmxw='~/Projects/.scripts/cmd/tmux-dev.sh'
 alias tmxb='~/Projects/.scripts/cmd/tmux-build.sh'
 alias tmxx='tmux kill-server'
 
+alias wrku='work && cd unturned && docker compose up -d && source ./unturned/.venv/bin/activate && tmxw'
+alias wrkd='docker compose down tmxx'
+
 # Shortcut to notes
 alias notes='cd ~/Documents/mr-vault/ && nvim new.md'
 
