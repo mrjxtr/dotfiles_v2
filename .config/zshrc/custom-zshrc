@@ -95,9 +95,10 @@ alias agc='cd ~/Projects/build/dev/auto-git-commit/ && ./bin/agc && cd ~/'
 alias tmxw='~/Projects/.scripts/cmd/tmux-dev.sh'
 alias tmxb='~/Projects/.scripts/cmd/tmux-build.sh'
 alias tmxx='tmux kill-server'
+alias tmxs='tmux kill-session'
 
 alias wrku='work && cd unturned && docker compose up -d && source ./unturned/.venv/bin/activate && tmxw'
-alias wrkd='docker compose down && tmxx'
+alias wrkd='docker compose down && tmxs && clear'
 
 # Shortcut to notes
 alias notes='cd ~/Documents/mr-vault/ && nvim new.md'
