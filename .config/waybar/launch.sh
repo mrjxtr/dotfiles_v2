@@ -10,7 +10,7 @@
 # -----------------------------------------------------
 killall waybar
 pkill waybar
-sleep 2
+sleep 1
 
 # -----------------------------------------------------
 # Default theme: /THEMEFOLDER;/VARIATION
