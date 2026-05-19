@@ -21,14 +21,14 @@ if [[ "$1" == "rofi" ]]; then
             notify-send "Hyprshade deactivated"
             echo ":: hyprshade turned off"
         else
-            notify-send "Changing Hyprshade to $choice" "Toggle shader with SUPER+SHIFT+S"
+            notify-send "Changing Hyprshade to $choice" "Toggle shader with SUPER+SHIFT+H"
         fi
     fi
 
 else
 
     # Toggle Hyprshade based on the selected filter
-    hyprshade_filter="blue-light-filter-50"
+    hyprshade_filter="blue-light-filter-25"
 
     # Check if hyprshade.sh settings file exists and load
     if [ -f ~/.config/ml4w/settings/hyprshade.sh ]; then
