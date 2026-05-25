@@ -69,6 +69,9 @@ alias gitss='git status --short'
 alias main='git checkout main'
 alias dev='git checkout dev'
 alias staging='git checkout staging'
+alias pdev='git pull origin dev'
+alias pmain='git pull origin main'
+
 
 alias repac='sudo reflector --verbose --latest 10 --protocol http --sort rate --save /etc/pacman.d/mirrorlist' # Regenerating Pacman server mirror list
 
