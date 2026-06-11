@@ -6,11 +6,23 @@
 #            /___/
 #
 # -----------------------------------------------------
-# Quit all running waybar instances
+# Serialize this script: concurrent runs (boot race, keybind spam)
+# wait their turn instead of each spawning their own waybar
 # -----------------------------------------------------
-killall waybar
-pkill waybar
-sleep 1
+exec 200>"$XDG_RUNTIME_DIR/waybar-launch.lock"
+flock -w 15 200 || exit 1
+
+# -----------------------------------------------------
+# Quit all running waybar instances and wait until they're gone
+# -----------------------------------------------------
+killall waybar 2>/dev/null
+for _ in $(seq 1 20); do
+    pgrep -x waybar >/dev/null || break
+    sleep 0.2
+done
+# still alive after 4s? force it
+pgrep -x waybar >/dev/null && killall -9 waybar 2>/dev/null
+sleep 0.2
 
 # -----------------------------------------------------
 # Default theme: /THEMEFOLDER;/VARIATION
@@ -50,7 +62,8 @@ fi
 
 # Check if waybar-disabled file exists
 if [ ! -f $HOME/.config/ml4w/settings/waybar-disabled ]; then
-    waybar -c ~/.config/waybar/themes${arrThemes[0]}/$config_file -s ~/.config/waybar/themes${arrThemes[1]}/$style_file &
+    # 200>&- closes the lock fd so waybar doesn't inherit it and hold the lock forever
+    waybar -c ~/.config/waybar/themes${arrThemes[0]}/$config_file -s ~/.config/waybar/themes${arrThemes[1]}/$style_file 200>&- &
 else
     echo ":: Waybar disabled"
 fi
