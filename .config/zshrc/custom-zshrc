@@ -59,6 +59,7 @@ alias cnc='swaync-client -C' # Clears all notifications
 alias tslist='sudo timeshift --list' # List all the backups
 alias tsbak='sudo timeshift --create --comments "Stable +-"' # Create a timeshift backup
 alias tsdel='sudo timeshift --delete --snapshot "$(sudo timeshift --list | grep -oP "(?<=\s)\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}" | head -n 1)"' # Delete the oldest backup
+alias tsdel3='for i in 1 2 3; do snap=$(sudo timeshift --list | grep -oP "(?<=\s)\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}" | head -n 1); [ -z "$snap" ] && break; sudo timeshift --delete --snapshot "$snap"; done'
 
 alias cc='claude'
 alias ccc='claude -c'
@@ -71,7 +72,6 @@ alias dev='git checkout dev'
 alias staging='git checkout staging'
 alias pulld='git pull origin dev'
 alias pullm='git pull origin main'
-
 
 alias repac='sudo reflector --verbose --latest 10 --protocol http --sort rate --save /etc/pacman.d/mirrorlist' # Regenerating Pacman server mirror list
 
