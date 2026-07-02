@@ -52,14 +52,14 @@ alias camon='sudo modprobe uvcvideo' # Turn camera on
 alias camoff='sudo modprobe -r uvcvideo' # Turn camera off
 alias caout='pactl load-module module-combine-sink' # Create a combined audio chanel
 alias unlckr='faillock --user $(whoami) --reset' # Unlock failed password attempts
-alias spdtest='speedtest-cli --secure --bytes' # Run an internet speed test
-alias spdtest_share='speedtest-cli --secure --bytes --share' # Run a shareable internet speed test
+alias spdt='speedtest-cli --secure --bytes' # Run an internet speed test
+alias spdts='speedtest-cli --secure --bytes --share' # Run a shareable internet speed test
 alias cnc='swaync-client -C' # Clears all notifications
 
-alias tslist='sudo timeshift --list' # List all the backups
-alias tsbak='sudo timeshift --create --comments "Stable +-"' # Create a timeshift backup
-alias tsdel='sudo timeshift --delete --snapshot "$(sudo timeshift --list | grep -oP "(?<=\s)\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}" | head -n 1)"' # Delete the oldest backup
-alias tsdel3='for i in 1 2 3; do snap=$(sudo timeshift --list | grep -oP "(?<=\s)\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}" | head -n 1); [ -z "$snap" ] && break; sudo timeshift --delete --snapshot "$snap"; done'
+alias tslst='sudo timeshift --list' # List all the backups
+alias tsbk='sudo timeshift --create --comments "Stable +-"' # Create a timeshift backup
+alias tsdl='sudo timeshift --delete --snapshot "$(sudo timeshift --list | grep -oP "(?<=\s)\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}" | head -n 1)"' # Delete the oldest backup
+alias tsdll='for i in 1 2 3; do snap=$(sudo timeshift --list | grep -oP "(?<=\s)\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}" | head -n 1); [ -z "$snap" ] && break; sudo timeshift --delete --snapshot "$snap"; done' # Delete the 3 oldest backup
 
 alias cc='claude'
 alias ccc='claude -c'
