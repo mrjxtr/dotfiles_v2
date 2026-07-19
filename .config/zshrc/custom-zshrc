@@ -90,6 +90,7 @@ alias fzf="fzf --padding 3% --border --reverse --preview 'cat {}'" # Custom fzf 
 alias checkv='~/Projects/.scripts/cmd/checkversions.sh'
 alias ginit='~/Projects/.scripts/cmd/initrepo.sh'
 alias sys-maintain='sudo ~/Projects/.scripts/cmd/sysmaintain.sh'
+alias conf='~/Projects/.scripts/cmd/hyprconf.sh'
 
 # Custom Automations
 alias poke='cd ~/Projects/build/dev/go-pme/ && ./go-pme && cd ~/'
