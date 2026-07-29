@@ -261,6 +261,17 @@
     "on-click": "~/.config/ml4w/settings/system-monitor.sh"
   },
 
+  // CPU temperature (k10temp Tctl)
+  "temperature": {
+    "interval": 1,
+    "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
+    "input-filename": "temp1_input",
+    "critical-threshold": 90,
+    "format": "| {temperatureC} °C ",
+    "tooltip": false,
+    "on-click": "~/.config/ml4w/settings/system-monitor.sh"
+  },
+
   // Hard disc space used
   "disk": {
     "interval": 30,
@@ -283,7 +294,7 @@
     //},
     // "modules": ["custom/system", "disk", "cpu", "memory", "hyprland/language"]
     //"modules": ["custom/system", "disk", "cpu", "memory"]
-    "modules": ["disk", "cpu", "memory"]
+    "modules": ["disk", "cpu", "memory", "temperature"]
   },
 
   // Group Tools
@@ -334,12 +345,12 @@
     "format-wifi": "",
     "format-ethernet": " {ifname}",
     "format-disconnected": "Disconnected ⚠",
-    "tooltip-format": " {ifname} via {gwaddri}",
+    "tooltip-format": " {ifname} via {gwaddr}",
     "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
-    "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
+    "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\nup: {bandwidthUpBits} down: {bandwidthDownBits}",
     "tooltip-format-disconnected": "Disconnected",
     //"max-length": 50,
-    "max-length": 10,
+    "max-length": 14,
     "on-click": "~/.config/ml4w/settings/networkmanager.sh",
     "on-click-right": "~/.config/ml4w/scripts/nm-applet.sh toggle"
   },

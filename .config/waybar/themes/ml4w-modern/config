@@ -54,7 +54,7 @@
         //"backlight",
         "group/hardware",
         "tray",
-        "custom/notification",
+        // "custom/notification",
         "custom/exit"
         //"custom/ml4w-welcome"
     ],

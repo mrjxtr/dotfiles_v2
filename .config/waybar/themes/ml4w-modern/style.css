@@ -336,6 +336,7 @@ window#waybar.empty #window {
 #disk,
 #memory,
 #cpu,
+#temperature,
 #language {
   margin: 0px;
   padding: 0px;
@@ -344,8 +345,8 @@ window#waybar.empty #window {
   opacity: 0.8;
 }
 
-#memory {
-  margin-right: 10px;
+#temperature {
+  margin-right: 15px;
 }
 
 #language {
