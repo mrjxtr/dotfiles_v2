@@ -266,8 +266,8 @@
     "interval": 1,
     "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
     "input-filename": "temp1_input",
-    "critical-threshold": 90,
-    "format": "| {temperatureC} °C ",
+    "critical-threshold": 91,
+    "format": "| {temperatureC}°C ",
     "tooltip": false,
     "on-click": "~/.config/ml4w/settings/system-monitor.sh"
   },
