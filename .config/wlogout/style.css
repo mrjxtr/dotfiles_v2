@@ -29,6 +29,7 @@ by Stephan Raabe (2023)
 window {
 	background: url("../ml4w/cache/blurred_wallpaper.png");
 	background-size: cover;
+	background-position: center;
 	font-size: 16pt;
 	color: #cdd6f4;
 }
