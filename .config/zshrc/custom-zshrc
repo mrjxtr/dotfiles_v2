@@ -6,9 +6,30 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # History settings
+# Loads after oh-my-zsh, so these win over ~/.oh-my-zsh/lib/history.zsh
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
+
+setopt HIST_IGNORE_ALL_DUPS  # purge older copies from the in-memory list
+setopt HIST_SAVE_NO_DUPS     # and from the file whenever it gets written out
+setopt HIST_REDUCE_BLANKS
+
+# Per-shell up-arrow instead of cross-terminal interleaving. share_history has
+# to go first, it makes inc_append_history_time a no-op.
+unsetopt SHARE_HISTORY
+setopt INC_APPEND_HISTORY_TIME
+
+# Keep bare-word typos (clera, cledar, neww) out of history so they stop
+# polluting Ctrl-R and autosuggestions. Only fires on single-word commands
+# that resolve to nothing, so a real command you haven't installed yet also
+# won't be saved.
+zshaddhistory() {
+  emulate -L zsh -o extended_glob
+  local line=${1%%$'\n'}
+  [[ $line == [[:alnum:]_-]## ]] && ! whence -w -- $line &>/dev/null && return 1
+  return 0
+}
 
 # Zsh options
 setopt beep nomatch
