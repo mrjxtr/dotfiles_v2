@@ -6,9 +6,8 @@
 # |_|\_\___|\__, |_.__/|_|_| |_|\__,_|_|_| |_|\__, |___/
 #           |___/                             |___/
 #
-# Rofi cheatsheet built from the live compositor state instead of parsing
-# config files, so it works the same for .conf and .lua configs.
-# Binds need a description option to show up here.
+# Rofi keybind cheatsheet built from the live compositor state (hyprctl binds),
+# no config parsing. Binds need a description option to show up here.
 
 hyprctl binds -j | jq -c '.[] | select(.description != "")' | awk '
 BEGIN {

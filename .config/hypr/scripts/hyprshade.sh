@@ -7,11 +7,9 @@
 #        |___/|_|
 #
 # Screen shader toggle/selector. The active shader is config state
-# (conf/shade_state.lua, read by conf/shader.lua), so toggling is a state
-# write + hyprctl reload. A real config reload runs the same apply path the
-# old `hyprctl keyword` did under hyprlang, which is what screen shaders
-# need to render without flicker or cursor artifacts. Setting the option
-# directly via `hyprctl eval` skips that path and glitches.
+# (conf/shade_state.lua, read by conf/shader.lua), so toggling rewrites the
+# state file and runs `hyprctl reload`. Keep it that way: setting
+# decoration.screen_shader via `hyprctl eval` flickers and leaves artifacts.
 
 SHADER_DIR="$HOME/.config/hypr/shaders"
 STATE_FILE="$HOME/.config/hypr/conf/shade_state.lua"

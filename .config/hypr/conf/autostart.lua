@@ -40,8 +40,6 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("~/.config/nwg-dock-hyprland/launch.sh")
 end)
 
--- ML4W Hyprland Settings app replay (hyprctl.sh) is retired: it uses
--- `hyprctl keyword`, which no longer works under the lua config. Its old
--- overrides (border colors, rounding) are baked into windows/custom.lua
--- and decorations/default.lua instead.
+-- ml4w settings replay, doesn't work under the lua config (its overrides
+-- live in windows/custom.lua and decorations/default.lua now)
 -- hl.exec_cmd("~/.config/com.ml4w.hyprlandsettings/hyprctl.sh")

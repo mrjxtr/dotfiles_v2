@@ -5,12 +5,10 @@ local mainMod = "SUPER"
 local HYPRSCRIPTS = "~/.config/hypr/scripts"
 local SCRIPTS = "~/.config/ml4w/scripts"
 
--- Binds that clash with games (sneak lives on the cmd/SUPER key, so holding it
--- while scrolling, clicking, or pressing hotbar numbers triggers these).
--- They get disabled automatically while a matching game window is focused.
--- Patterns must match the GAME window only, never launchers, or you lose
--- workspace switching while the launcher is focused.
--- The game class starts with "Minecraft" (capital M), launcher is "minecraft-launcher".
+-- Binds that clash with games (sneak sits on the cmd/SUPER key), disabled
+-- by the game watcher below while a game window is focused.
+-- Patterns must match the game window only, never the launcher, or you lose
+-- workspace switching there ("^Minecraft" skips "minecraft-launcher").
 local game_binds = {}
 local game_classes = { "^Minecraft" }
 

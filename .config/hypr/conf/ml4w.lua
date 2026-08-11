@@ -4,7 +4,7 @@
 -- /_/  /_/____//_/ |__/|__/  \___/\___/_//_/_/
 --
 
--- SwayNC (ignore_alpha 0.5 also covers the old ignorezero rule)
+-- SwayNC
 hl.layer_rule({
     name = "swaync-control-center",
     match = { namespace = "swaync-control-center" },

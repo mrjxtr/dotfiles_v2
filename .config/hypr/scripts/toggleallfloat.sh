@@ -6,7 +6,7 @@
 # /_/   \_\_|_|_| |_|\___/ \__,_|\__|
 #
 
-# workspaceopt was deprecated with the lua config, toggle each window instead
+# no workspaceopt allfloat in the lua config, so flip each window one by one
 ws_id=$(hyprctl activeworkspace -j | jq -r '.id')
 for addr in $(hyprctl clients -j | jq -r --argjson ws "$ws_id" '.[] | select(.workspace.id == $ws) | .address'); do
     hyprctl dispatch "hl.dsp.window.float({ action = \"toggle\", window = \"address:$addr\" })"
