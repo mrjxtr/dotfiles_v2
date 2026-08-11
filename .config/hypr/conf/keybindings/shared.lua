@@ -14,6 +14,15 @@ local game_classes = { "^Minecraft" }
 
 -- Applications
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd("~/.config/ml4w/settings/terminal.sh"), { description = "Open the terminal" })
+hl.bind(mainMod .. " + SHIFT + RETURN", function()
+    -- Floating terminal sized relative to the focused monitor.
+    local mon = hl.get_active_monitor()
+    if not mon then return end
+    -- width/height are physical pixels; window sizes are logical units, so divide by scale
+    local w = math.floor(mon.width / mon.scale * 0.65)
+    local h = math.floor(mon.height / mon.scale * 0.70)
+    hl.exec_cmd("kitty --class kitty-float", { float = true, center = true, size = w .. " " .. h })
+end, { description = "Open a floating terminal" })
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("~/.config/ml4w/settings/browser.sh"), { description = "Open the browser" })
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("~/.config/ml4w/settings/filemanager.sh"), { description = "Open the filemanager" })
 hl.bind(mainMod .. " + CTRL + E", hl.dsp.exec_cmd("~/.config/ml4w/settings/emojipicker.sh"), { description = "Open the emoji picker" })
