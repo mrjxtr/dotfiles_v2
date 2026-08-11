@@ -20,6 +20,8 @@ if [[ "$1" == "toggle" ]]; then
     if pgrep -x "$SERVICE" >/dev/null; then
         killall hypridle
     else
-        hypridle
+        # detach so waybar's on-click handler exits right away, otherwise
+        # exec-on-event never fires and the icon stays red until the 60s poll
+        setsid hypridle >/dev/null 2>&1 &
     fi
 fi
