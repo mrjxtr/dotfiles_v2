@@ -1,0 +1,33 @@
+-- Layouts
+-- name: "Laptop"
+
+hl.config({
+    dwindle = {
+        preserve_split = true,
+    },
+
+    master = {
+        -- new_status = "master", -- commented out due to compatibility reasons
+    },
+
+    gestures = {
+        workspace_swipe_distance = 500,
+        workspace_swipe_invert = true,
+        workspace_swipe_min_speed_to_force = 30,
+        workspace_swipe_cancel_ratio = 0.5,
+        workspace_swipe_create_new = true,
+        workspace_swipe_forever = true,
+    },
+
+    binds = {
+        workspace_back_and_forth = true,
+        allow_workspace_cycles = true,
+        pass_mouse_when_bound = false,
+    },
+})
+
+hl.gesture({
+    fingers = 3,
+    direction = "horizontal",
+    action = "workspace",
+})

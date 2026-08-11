@@ -20,6 +20,7 @@ if [[ "$1" == "toggle" ]]; then
     if pgrep -x "$SERVICE" >/dev/null; then
         killall hypridle
     else
-        hypridle
+        # detach so the click handler returns and waybar refreshes the icon
+        setsid hypridle >/dev/null 2>&1 &
     fi
 fi
