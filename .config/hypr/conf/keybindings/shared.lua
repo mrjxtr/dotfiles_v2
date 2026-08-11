@@ -5,6 +5,15 @@ local mainMod = "SUPER"
 local HYPRSCRIPTS = "~/.config/hypr/scripts"
 local SCRIPTS = "~/.config/ml4w/scripts"
 
+-- Binds that clash with games (sneak lives on the cmd/SUPER key, so holding it
+-- while scrolling, clicking, or pressing hotbar numbers triggers these).
+-- They get disabled automatically while a matching game window is focused.
+-- Patterns must match the GAME window only, never launchers, or you lose
+-- workspace switching while the launcher is focused.
+-- The game class starts with "Minecraft" (capital M), launcher is "minecraft-launcher".
+local game_binds = {}
+local game_classes = { "^Minecraft" }
+
 -- Applications
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd("~/.config/ml4w/settings/terminal.sh"), { description = "Open the terminal" })
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("~/.config/ml4w/settings/browser.sh"), { description = "Open the browser" })
@@ -24,8 +33,8 @@ hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }), { description =
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }), { description = "Move focus right" })
 hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }), { description = "Move focus up" })
 hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }), { description = "Move focus down" })
-hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true, description = "Move window with the mouse" })
-hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true, description = "Resize window with the mouse" })
+table.insert(game_binds, hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true, description = "Move window with the mouse" }))
+table.insert(game_binds, hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true, description = "Resize window with the mouse" }))
 hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.resize({ x = 100, y = 0, relative = true }), { description = "Increase window width with keyboard" })
 hl.bind(mainMod .. " + SHIFT + left", hl.dsp.window.resize({ x = -100, y = 0, relative = true }), { description = "Reduce window width with keyboard" })
 hl.bind(mainMod .. " + SHIFT + down", hl.dsp.window.resize({ x = 0, y = 100, relative = true }), { description = "Increase window height with keyboard" })
@@ -67,16 +76,18 @@ hl.bind(mainMod .. " + CTRL + L", hl.dsp.exec_cmd(HYPRSCRIPTS .. "/power.sh lock
 -- Switch workspace with mainMod + [0-9], move window with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
-    hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }), { description = "Open workspace " .. i })
+    table.insert(game_binds, hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }), { description = "Open workspace " .. i }))
     hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }), { description = "Move active window to workspace " .. i })
     hl.bind(mainMod .. " + CTRL + " .. key, hl.dsp.exec_cmd(HYPRSCRIPTS .. "/moveTo.sh " .. i), { description = "Move all windows to workspace " .. i })
 end
 
-hl.bind(mainMod .. " + Tab", hl.dsp.focus({ workspace = "m+1" }), { description = "Open next workspace" })
+table.insert(game_binds, hl.bind(mainMod .. " + Tab", hl.dsp.focus({ workspace = "m+1" }), { description = "Open next workspace" }))
+-- SHIFT+Tab stays enabled in games on purpose: it is the escape hatch to
+-- leave the workspace while the game has all the other exits disabled.
 hl.bind(mainMod .. " + SHIFT + Tab", hl.dsp.focus({ workspace = "m-1" }), { description = "Open previous workspace" })
 
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }), { description = "Open next workspace" })
-hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }), { description = "Open previous workspace" })
+table.insert(game_binds, hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }), { description = "Open next workspace" }))
+table.insert(game_binds, hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }), { description = "Open previous workspace" }))
 hl.bind(mainMod .. " + CTRL + down", hl.dsp.focus({ workspace = "empty" }), { description = "Open the next empty workspace" })
 
 -- Fn keys
@@ -95,3 +106,27 @@ hl.bind("XF86Calculator", hl.dsp.exec_cmd("~/.config/ml4w/settings/calculator.sh
 
 hl.bind("code:238", hl.dsp.exec_cmd("brightnessctl -d smc::kbd_backlight s +10"), { description = "Increase keyboard backlight" })
 hl.bind("code:237", hl.dsp.exec_cmd("brightnessctl -d smc::kbd_backlight s 10-"), { description = "Reduce keyboard backlight" })
+
+-- Game watcher: toggles game_binds off while a game window has focus so the
+-- SUPER key (sneak) doesn't fight the compositor. SUPER+SHIFT/CTRL combos
+-- and SHIFT+Tab stay active as escape hatches.
+local game_mode_active = false
+hl.on("window.active", function()
+    local win = hl.get_active_window()
+    local is_game = false
+    if win and type(win.class) == "string" then
+        for _, pattern in ipairs(game_classes) do
+            if win.class:match(pattern) then
+                is_game = true
+                break
+            end
+        end
+    end
+    if is_game == game_mode_active then
+        return -- nothing changed, don't churn the binds on every focus event
+    end
+    game_mode_active = is_game
+    for _, bind in ipairs(game_binds) do
+        bind:set_enabled(not is_game)
+    end
+end)
