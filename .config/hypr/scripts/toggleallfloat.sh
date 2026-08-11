@@ -6,5 +6,9 @@
 # /_/   \_\_|_|_| |_|\___/ \__,_|\__|
 #
 
-hyprctl dispatch workspaceopt allfloat
+# workspaceopt was deprecated with the lua config, toggle each window instead
+ws_id=$(hyprctl activeworkspace -j | jq -r '.id')
+for addr in $(hyprctl clients -j | jq -r --argjson ws "$ws_id" '.[] | select(.workspace.id == $ws) | .address'); do
+    hyprctl dispatch togglefloating "address:$addr"
+done
 notify-send "Windows on this workspace toggled to floating/tiling"

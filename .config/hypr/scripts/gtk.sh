@@ -42,8 +42,12 @@ gsettings set "$gnome_schema" font-name "$font_name"
 gsettings set "$gnome_schema" color-scheme "$prefer_dark_theme_value"
 
 # Update cursor for Hyprland
-if [ -f ~/.config/hypr/conf/cursor.conf ]; then
-    echo "exec-once = hyprctl setcursor $cursor_theme $cursor_size" >~/.config/hypr/conf/cursor.conf
+if [ -f ~/.config/hypr/conf/cursor.lua ]; then
+    {
+        echo "-- Cursor theme, applied on every config load. gtk.sh rewrites this file"
+        echo "-- when the cursor theme changes in nwg-look."
+        echo "hl.exec_cmd(\"hyprctl setcursor $cursor_theme $cursor_size\")"
+    } >~/.config/hypr/conf/cursor.lua
     hyprctl setcursor $cursor_theme $cursor_size
 fi
 
