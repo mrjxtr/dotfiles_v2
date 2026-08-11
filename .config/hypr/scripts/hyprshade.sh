@@ -53,12 +53,7 @@ shade_off() {
     shade_set ""
 }
 
-if [[ "$1" == "status" ]]; then
-
-    # Print the current shader/damage-tracking state (debug helper)
-    echo "shader=$(shade_current) damage_tracking=$(hyprctl getoption debug:damage_tracking -j | jq -r '.int')"
-
-elif [[ "$1" == "rofi" ]]; then
+if [[ "$1" == "rofi" ]]; then
 
     # Open rofi to select the shader filter for toggle
     options="$(basename -s .glsl -a "$SHADER_DIR"/*.glsl)\noff"

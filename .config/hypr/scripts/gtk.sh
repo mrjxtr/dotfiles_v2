@@ -44,8 +44,7 @@ gsettings set "$gnome_schema" color-scheme "$prefer_dark_theme_value"
 # Update cursor for Hyprland
 if [ -f ~/.config/hypr/conf/cursor.lua ]; then
     {
-        echo "-- Cursor theme, applied on every config load. gtk.sh rewrites this file"
-        echo "-- when the cursor theme changes in nwg-look."
+        echo "-- Cursor theme. gtk.sh rewrites this file when the theme changes in nwg-look."
         echo "hl.exec_cmd(\"hyprctl setcursor $cursor_theme $cursor_size\")"
     } >~/.config/hypr/conf/cursor.lua
     hyprctl setcursor $cursor_theme $cursor_size

@@ -26,8 +26,6 @@ require("conf.keyboard")
 
 -- Matugen color file (globals: background, on_surface, ...)
 require("colors")
-color8 = on_primary_fixed
-color11 = on_surface
 
 -- Autostart
 require("conf.autostart")
