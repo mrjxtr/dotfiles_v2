@@ -35,6 +35,7 @@ require("conf.autostart")
 -- Configuration files
 require("conf.window")
 require("conf.decoration")
+require("conf.shader")
 require("conf.layout")
 require("conf.workspace")
 require("conf.misc")
