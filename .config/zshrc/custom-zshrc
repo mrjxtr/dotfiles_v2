@@ -78,7 +78,7 @@ alias spdts='speedtest-cli --secure --bytes --share' # Run a shareable internet 
 alias cnc='swaync-client -C' # Clears all notifications
 
 alias tslst='sudo timeshift --list' # List all the backups
-alias tsbk='sudo timeshift --create --comments "Stable +-"' # Create a timeshift backup
+alias tsbk='sudo timeshift --create --comments "Stable +-" && swaync-client -C' # Create a timeshift backup
 alias tsdl='sudo timeshift --delete --snapshot "$(sudo timeshift --list | grep -oP "(?<=\s)\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}" | head -n 1)"' # Delete the oldest backup
 alias tsdll='for i in 1 2 3; do snap=$(sudo timeshift --list | grep -oP "(?<=\s)\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}" | head -n 1); [ -z "$snap" ] && break; sudo timeshift --delete --snapshot "$snap"; done' # Delete the 3 oldest backup
 
