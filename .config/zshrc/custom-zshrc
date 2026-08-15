@@ -66,7 +66,8 @@ alias work='cd ~/Projects/work'
 alias learn='cd ~/Projects/learn'
 alias build='cd ~/Projects/build'
 alias contrib='cd ~/Projects/contrib'
-alias teach='cd ~/Projects/teach/'
+alias teach='cd ~/Projects/teach'
+alias xtr='cd ~/Projects/xtr'
 
 # Utility Aliases
 alias camon='sudo modprobe uvcvideo' # Turn camera on
