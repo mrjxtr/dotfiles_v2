@@ -33,18 +33,22 @@ systemctl --user stop xdg-desktop-portal-wlr
 systemctl --user stop xdg-desktop-portal-hyprland
 sleep $_sleep1
 
-# Start xdg-desktop-portal-hyprland
-/usr/lib/xdg-desktop-portal-hyprland &
-sleep $_sleep1
+# NOTE: portals are started by systemd (below) or D-Bus activation (gtk), not by hand.
+# A manual launch grabs the portal's D-Bus name first, so the systemd unit
+# fails with "Failed to request bus name (File exists)" and hits start-limit.
 
-# Start xdg-desktop-portal-gtk
-if [ -f /usr/lib/xdg-desktop-portal-gtk ]; then
-    /usr/lib/xdg-desktop-portal-gtk &
-    sleep $_sleep1
-fi
+# # Start xdg-desktop-portal-hyprland
+# /usr/lib/xdg-desktop-portal-hyprland &
+# sleep $_sleep1
 
-# Start xdg-desktop-portal
-/usr/lib/xdg-desktop-portal &
+# # Start xdg-desktop-portal-gtk
+# if [ -f /usr/lib/xdg-desktop-portal-gtk ]; then
+#     /usr/lib/xdg-desktop-portal-gtk &
+#     sleep $_sleep1
+# fi
+
+# # Start xdg-desktop-portal
+# /usr/lib/xdg-desktop-portal &
 sleep $_sleep2
 
 # Start required services
