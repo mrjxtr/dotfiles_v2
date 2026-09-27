@@ -7,36 +7,35 @@ cat <<"EOF"
 /_/|_|\__/___/\__/\___/_/  \__/
 
 EOF
-echo "You can restore to the default ML4W variations."
-echo "PLEASE NOTE: You can reactivate to a customized variation or selection in the settings script."
-echo "Your customized variation will not be overwritten or deleted."
+echo "You can restore all variation selectors to the default variations."
+echo "PLEASE NOTE: Your customized variation files will not be overwritten or deleted."
+
+restore() {
+    # Writes a lua selector file pointing at the default variation,
+    # e.g. restore keybinding keybindings
+    local selector=$1 category=$2
+    if [ ! -f ~/.config/hypr/conf/$category/default.lua ]; then
+        echo "Skipped $selector: no $category/default.lua ported yet"
+        return
+    fi
+    {
+        echo "-- ${selector^} variation selector"
+        echo "load_variant(\"default.lua\", \"$category\")"
+    } >~/.config/hypr/conf/$selector.lua
+    echo "Hyprland $selector.lua restored!"
+}
 
 if gum confirm "Do you want to restore all variations to the default values?"; then
     echo
-
-    echo "source = ~/.config/hypr/conf/keybindings/default.conf" >~/.config/hypr/conf/keybinding.conf
-    echo "Hyprland keybinding.conf restored!"
-
-    echo "source = ~/.config/hypr/conf/environments/default.conf" >~/.config/hypr/conf/environment.conf
-    echo "Hyprland environment.conf restored!"
-
-    echo "source = ~/.config/hypr/conf/windowrules/default.conf" >~/.config/hypr/conf/windowrule.conf
-    echo "Hyprland windowrule.conf restored!"
-
-    echo "source = ~/.config/hypr/conf/animations/default.conf" >~/.config/hypr/conf/animation.conf
-    echo "Hyprland animation.conf restored!"
-
-    echo "source = ~/.config/hypr/conf/decorations/default.conf" >~/.config/hypr/conf/decoration.conf
-    echo "Hyprland decoration.conf restored!"
-
-    echo "source = ~/.config/hypr/conf/windows/default.conf" >~/.config/hypr/conf/window.conf
-    echo "Hyprland window.conf restored!"
-
-    echo "source = ~/.config/hypr/conf/monitors/default.conf" >~/.config/hypr/conf/monitor.conf
-    echo "Hyprland monitor.conf restored!"
-
+    restore keybinding keybindings
+    restore environment environments
+    restore windowrule windowrules
+    restore animation animations
+    restore decoration decorations
+    restore window windows
+    restore monitor monitors
     echo
-    echo ":: Restore done!"
+    echo ":: Restore done! Reload with: hyprctl reload"
 else
     echo ":: Restore canceled!"
     exit

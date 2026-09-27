@@ -1,13 +1,13 @@
 #!/bin/bash
 cache_file="$HOME/.cache/toggle_animation"
-if [[ $(cat $HOME/.config/hypr/conf/animation.conf) == *"disabled"* ]]; then
-    echo ":: Toggle blocked by disabled.conf variation."
+if [[ $(cat $HOME/.config/hypr/conf/animation.lua) == *"disabled"* ]]; then
+    echo ":: Toggle blocked by disabled variation."
 else
     if [ -f $cache_file ]; then
-        hyprctl keyword animations:enabled true
+        hyprctl eval "hl.config({ animations = { enabled = true } })"
         rm $cache_file
     else
-        hyprctl keyword animations:enabled false
+        hyprctl eval "hl.config({ animations = { enabled = false } })"
         touch $cache_file
     fi
 fi

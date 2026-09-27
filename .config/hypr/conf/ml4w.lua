@@ -1,0 +1,200 @@
+--    __  _____  _____      __  _____          ___
+--   /  |/  / / / / / | /| / / / ___/__  ___  / _/
+--  / /|_/ / /_/_  _/ |/ |/ / / /__/ _ \/ _ \/ _/
+-- /_/  /_/____//_/ |__/|__/  \___/\___/_//_/_/
+--
+
+-- SwayNC
+hl.layer_rule({
+    name = "swaync-control-center",
+    match = { namespace = "swaync-control-center" },
+    blur = true,
+    ignore_alpha = 0.5,
+})
+hl.layer_rule({
+    name = "swaync-notification-window",
+    match = { namespace = "swaync-notification-window" },
+    blur = true,
+    ignore_alpha = 0.5,
+})
+
+-- Pavucontrol
+hl.window_rule({
+    name = "pavucontrol",
+    match = { class = ".*org.pulseaudio.pavucontrol.*" },
+    float = true,
+    center = true,
+    pin = true,
+    size = "700 600",
+})
+
+-- Waypaper
+hl.window_rule({
+    name = "waypaper",
+    match = { class = ".*waypaper.*" },
+    float = true,
+    center = true,
+    pin = true,
+    size = "900 700",
+})
+
+-- ML4W Calendar
+hl.window_rule({
+    name = "ml4w-calendar",
+    match = { class = "com.ml4w.calendar" },
+    float = true,
+    move = "monitor_w-window_w-18 85",
+    pin = true,
+    size = "400 400",
+})
+
+-- ML4W Sidebar
+hl.window_rule({
+    name = "ml4w-sidebar",
+    match = { class = "com.ml4w.sidebar" },
+    float = true,
+    move = "monitor_w-window_w-18 91",
+    pin = true,
+    size = "400 660",
+})
+
+-- ML4W Welcome
+hl.window_rule({
+    name = "ml4w-welcome",
+    match = { class = "com.ml4w.welcome" },
+    float = true,
+    center = true,
+    pin = true,
+    size = "700 600",
+})
+
+-- ML4W Settings
+hl.window_rule({
+    name = "ml4w-settings",
+    match = { class = "com.ml4w.settings" },
+    float = true,
+    move = "10% 20%",
+    size = "800 600",
+})
+
+-- Blueman Manager
+hl.window_rule({
+    name = "blueman-manager",
+    match = { class = "blueman-manager" },
+    float = true,
+    center = true,
+    size = "800 600",
+})
+
+-- nwg-look
+hl.window_rule({
+    name = "nwg-look",
+    match = { class = "nwg-look" },
+    float = true,
+    center = true,
+    size = "700 600",
+})
+
+-- nwg-displays
+hl.window_rule({
+    name = "nwg-displays",
+    match = { class = "nwg-displays" },
+    float = true,
+    center = true,
+    size = "900 600",
+})
+
+-- System Mission Center
+hl.window_rule({
+    name = "missioncenter",
+    match = { class = "io.missioncenter.MissionCenter" },
+    float = true,
+    center = true,
+    pin = true,
+    size = "900 600",
+})
+
+-- Gnome Calculator
+hl.window_rule({
+    name = "gnome-calculator",
+    match = { class = "org.gnome.Calculator" },
+    float = true,
+    center = true,
+    size = "700 600",
+})
+
+-- Emoji Picker Smile
+hl.window_rule({
+    name = "emoji-picker-smile",
+    match = { class = "it.mijorus.smile" },
+    float = true,
+    pin = true,
+    move = "monitor_w-window_w-40 90",
+    size = "400 500",
+})
+
+-- Hyprland Share Picker
+hl.window_rule({
+    name = "hyprland-share-picker",
+    match = { class = "hyprland-share-picker" },
+    float = true,
+    pin = true,
+    center = true,
+    size = "600 400",
+})
+
+-- nm-connection-editor
+hl.window_rule({
+    name = "nm-connection-editor",
+    match = { class = "nm-connection-editor" },
+    float = true,
+    center = true,
+    size = "800 700",
+})
+
+-- Picture-in-Picture
+hl.window_rule({
+    name = "Picture-in-Picture",
+    match = { class = "Picture-in-Picture" },
+    float = true,
+    pin = true,
+    center = true,
+})
+
+-- General floating
+hl.window_rule({
+    name = "dotfiles-floating",
+    match = { class = "dotfiles-floating" },
+    float = true,
+    center = true,
+    size = "1000 700",
+})
+
+-- XDG Desktop Portal
+hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
+hl.env("XDG_SESSION_TYPE", "wayland")
+hl.env("XDG_SESSION_DESKTOP", "Hyprland")
+
+-- QT
+hl.env("QT_QPA_PLATFORM", "wayland;xcb")
+hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+hl.env("QT_QPA_PLATFORMTHEME", "qt5ct")
+hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
+hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
+
+-- GDK
+hl.env("GDK_SCALE", "1")
+
+-- Toolkit Backend
+hl.env("GDK_BACKEND", "wayland,x11,*")
+hl.env("CLUTTER_BACKEND", "wayland")
+
+-- Mozilla
+hl.env("MOZ_ENABLE_WAYLAND", "1")
+
+-- Set the cursor size for xcursor
+hl.env("XCURSOR_SIZE", "24")
+
+-- Ozone
+hl.env("OZONE_PLATFORM", "wayland")
+hl.env("ELECTRON_OZONE_PLATFORM_HINT", "wayland")
