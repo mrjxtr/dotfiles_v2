@@ -132,6 +132,9 @@ alias notes='cd ~/Documents/mr-vault/ && nvim new.md'
 # Golang Path
 export PATH=$PATH:$HOME/go/bin
 
+# Mason bin, exposes nvim's LSP servers to other tools
+export PATH="$PATH:$HOME/.local/share/nvim/mason/bin"
+
 # Fly.io CLI
 export FLYCTL_INSTALL="/home/mrjxtr/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
